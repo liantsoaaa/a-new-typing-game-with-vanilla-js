@@ -268,47 +268,48 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 
 window.addEventListener("load", initGame);
 
-function checkLoginStatus() {
-    const user = localStorage.getItem('currentUser');
-    if (user) {
-        const userData = JSON.parse(user);
-        isLoggedIn = true;
-        username = userData.username;
-        updateAuthUI();
-    }
-}
+function updateLoginDisplay() {
+    const userGreeting = document.getElementById('user-greeting');
+    const loginLink = document.querySelector('.style-login');
+    const loggedInUser = localStorage.getItem('loggedInUser');
 
-function updateAuthUI() {
-    const authButton = document.getElementById('auth-button');
-    const usernameDisplay = document.getElementById('username-display');
-    
-    if (isLoggedIn) {
-        authButton.textContent = 'Logout';
-        authButton.classList.remove('style-login');
-        authButton.classList.add('style-logout');
-        usernameDisplay.textContent = username;
-        usernameDisplay.classList.add('visible');
+    if (loggedInUser) {
+        userGreeting.textContent = `Hello, ${loggedInUser}`;
+        userGreeting.style.display = 'block';
+        loginLink.textContent = 'Logout';
+        loginLink.classList.add('style-logout');
+        loginLink.classList.remove('style-login');
+        loginLink.href = '#';
+        loginLink.addEventListener('click', handleLogout);
     } else {
-        authButton.textContent = 'Login';
-        authButton.classList.add('style-login');
-        authButton.classList.remove('style-logout');
-        usernameDisplay.classList.remove('visible');
+        userGreeting.style.display = 'none';
+        loginLink.textContent = 'Login';
+        loginLink.classList.add('style-login');
+        loginLink.classList.remove('style-logout');
+        loginLink.href = 'register.html';
+        loginLink.removeEventListener('click', handleLogout);
     }
 }
 
-function handleAuthClick(e) {
-    if (isLoggedIn) {
-        e.preventDefault();
-        localStorage.removeItem('currentUser');
-        isLoggedIn = false;
-        username = '';
-        updateAuthUI();
-    }
+function handleLogout(e) {
+    e.preventDefault();
+    localStorage.removeItem('loggedInUser');
+    updateLoginDisplay();
+    window.location.href = 'index.html';
 }
-
-document.getElementById('auth-button').addEventListener('click', handleAuthClick);
 
 window.addEventListener('load', () => {
     initGame();
-    checkLoginStatus();
+    updateLoginDisplay();
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        if (link.classList.contains('style-logout')) {
+            handleLogout(e);
+        } else {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        }
+    });
 });
