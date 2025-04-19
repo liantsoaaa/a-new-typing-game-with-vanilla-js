@@ -1,4 +1,3 @@
-// Elements
 const wordInput = document.getElementById("wordInput");
 const gameArea = document.getElementById("gameArea");
 const scoreDisplay = document.getElementById("score");
@@ -20,18 +19,6 @@ let lives = 5;
 let gameInterval;
 let gameRunning = false;
 let difficulty = "easy";
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('active');
-});
-
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-    });
-});
 
 difficultySelect.addEventListener('change', (e) => {
     difficulty = e.target.value;
