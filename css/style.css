@@ -120,9 +120,9 @@ nav a.style-login::after {
     font-weight: bolder;
     display: flex;
     align-items: center;
-    margin-right: 20px;
-    border-radius: 10px;
-    padding: 3px 15px;
+    margin-right: 10px;
+    border-radius: 12px;
+    padding: 3px 10px;
 }
 
 .username-display.visible {
@@ -310,6 +310,61 @@ nav a.style-login::after {
 
 .hamburger.active .hamburger-inner::after {
     transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width: 992px) {
+    .username-display {
+        max-width: 20px;  
+        font-size: 0.7rem; 
+        padding: 2px 2px;  
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .style-logout {
+        padding: 8px 12px; 
+        font-size: 0.9rem; 
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links.active li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-links.active .username-display {
+        display: block;
+        max-width: 100%;
+        margin: 10px 0;
+        padding: 8px;
+        font-size: 0.9rem; 
+    }
+    
+    .nav-links.active .style-logout {
+        display: inline-block;
+        width: auto;
+        margin: 10px auto;
+        padding: 12px 24px; 
+        font-size: 1rem;    
+    }
+    
+    .username-display:not(.visible) {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .username-display {
+        max-width: 20px;   
+        font-size: 0.7rem; 
+    }
+    
+    .style-logout {
+        padding: 10px 16px; 
+        font-size: 0.8rem;  
+    }
 }
 
 @media (max-width: 992px) {
