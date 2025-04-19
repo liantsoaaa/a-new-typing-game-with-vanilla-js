@@ -75,18 +75,18 @@ function displayWords() {
     words.forEach((word, index) => {
         const wordSpan = document.createElement("span");
         wordSpan.classList.add("word");
-        
+
         for (let i = 0; i < word.length; i++) {
             const charSpan = document.createElement("span");
             charSpan.textContent = word[i];
             charSpan.classList.add("char");
             wordSpan.appendChild(charSpan);
         }
-        
+
         const spaceSpan = document.createElement("span");
         spaceSpan.textContent = " ";
         wordSpan.appendChild(spaceSpan);
-        
+
         wordsContainer.appendChild(wordSpan);
     });
 }
@@ -113,16 +113,23 @@ function updateTimerDisplay() {
 }
 
 function calculateWPM() {
-    if (!startTime) return 0;
+    if (!startTime || timeLeft === selectedDuration) return 0;
 
-    const elapsedMinutes = (selectedDuration - timeLeft) / 60;
-    return Math.round((correctCharactersTyped / 5) / Math.max(elapsedMinutes, 0.1));
+    const elapsedTime = (Date.now() - startTime) / 1000;
+    const elapsedMinutes = elapsedTime / 60;
+
+    const wordsTyped = correctCharactersTyped / 5;
+    const wpm = Math.round(wordsTyped / elapsedMinutes);
+
+    return isNaN(wpm) ? 0 : wpm;
 }
 
 function calculateAccuracy() {
     if (totalCharactersTyped === 0) return 0;
-    return Math.round((correctCharactersTyped / totalCharactersTyped) * 100);
+    const accuracy = Math.round((correctCharactersTyped / totalCharactersTyped) * 100);
+    return Math.min(accuracy, 100);
 }
+
 
 function updateStats() {
     const wpm = calculateWPM();
@@ -164,7 +171,7 @@ function handleInput() {
 
     totalCharactersTyped = 0;
     correctCharactersTyped = 0;
-    
+
     for (let i = 0; i < typedWord.length; i++) {
         totalCharactersTyped++;
         if (i < currentWord.length && typedWord[i] === currentWord[i]) {
@@ -227,15 +234,6 @@ function endGame() {
     clearInterval(timer);
     inputField.disabled = true;
     showRestartOverlay();
-}
-
-function showRestartOverlay() {
-    restartOverlay.textContent = `Time's up! Your score: ${wpmDisplay.textContent} WPM (${accuracyDisplay.textContent} accuracy)`;
-    restartOverlay.classList.add("visible");
-    setTimeout(() => {
-        restartOverlay.classList.remove("visible");
-        initGame();
-    }, 3000);
 }
 
 inputField.addEventListener("input", handleInput);
@@ -313,3 +311,94 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         }
     });
 });
+
+function showRestartOverlay() {
+    console.log("Showing restart overlay");
+    restartOverlay.innerHTML = `
+        <p>Great job! Your score: ${wpmDisplay.textContent} WPM (${accuracyDisplay.textContent} accuracy)</p>
+        <div class="overlay-buttons">
+            <button id="view-stats-btn" class="action-btn">View Statistics</button>
+            <button id="try-again-btn" class="action-btn secondary">Try Again</button>
+        </div>
+    `;
+    restartOverlay.classList.add("visible");
+    console.log("Overlay should be visible now");
+
+    try {
+        storeTestResults();
+    } catch (error) {
+        console.error("Error storing test results:", error);
+    }
+
+    const viewStatsBtn = document.getElementById('view-stats-btn');
+    const tryAgainBtn = document.getElementById('try-again-btn');
+
+    if (viewStatsBtn) {
+        viewStatsBtn.addEventListener('click', () => {
+            console.log("View Stats button clicked");
+            window.location.href = "stats_typing.html";
+        });
+    }
+
+    if (tryAgainBtn) {
+        tryAgainBtn.addEventListener('click', () => {
+            console.log("Try Again button clicked");
+            restartOverlay.classList.remove("visible");
+            initGame();
+        });
+    }
+}
+
+function storeTestResults() {
+    let stats;
+    try {
+        stats = JSON.parse(localStorage.getItem('typingStats'));
+        if (!stats || typeof stats !== 'object') {
+            stats = {
+                tests: [],
+                bestWpm: 0,
+                totalCharacters: 0,
+                correctCharacters: 0
+            };
+        }
+
+        if (!Array.isArray(stats.tests)) {
+            stats.tests = [];
+        }
+
+        const newTest = {
+            wpm: parseInt(wpmDisplay.textContent) || 0,
+            accuracy: parseInt(accuracyDisplay.textContent) || 0,
+            date: new Date().toISOString(),
+            charactersTyped: totalCharactersTyped || 0,
+            correctCharacters: correctCharactersTyped || 0
+        };
+
+        stats.tests.push(newTest);
+
+        if (newTest.wpm > (stats.bestWpm || 0)) {
+            stats.bestWpm = newTest.wpm;
+        }
+
+        stats.totalCharacters = (stats.totalCharacters || 0) + (totalCharactersTyped || 0);
+        stats.correctCharacters = (stats.correctCharacters || 0) + (correctCharactersTyped || 0);
+
+        localStorage.setItem('typingStats', JSON.stringify(stats));
+        console.log("Test results stored successfully", stats);
+    } catch (error) {
+        console.error("Error in storeTestResults:", error);
+        stats = {
+            tests: [{
+                wpm: parseInt(wpmDisplay.textContent) || 0,
+                accuracy: parseInt(accuracyDisplay.textContent) || 0,
+                date: new Date().toISOString(),
+                charactersTyped: totalCharactersTyped || 0,
+                correctCharacters: correctCharactersTyped || 0
+            }],
+            bestWpm: parseInt(wpmDisplay.textContent) || 0,
+            totalCharacters: totalCharactersTyped || 0,
+            correctCharacters: correctCharactersTyped || 0
+        };
+        localStorage.setItem('typingStats', JSON.stringify(stats));
+    }
+}

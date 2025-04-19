@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../asset/images/vanilla_typing_logo.png" />
+    <title>Game Statistics</title>
+    <link rel="stylesheet" href="../css/stats.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="../asset/images/vanilla_typing_logo.png" alt="vanilla_typing_logo" class="logo-img">
+            <div class="logo">Vanilla Typing Game</div>
+        </div>
+        <nav>
+            <button class="hamburger" aria-label="Menu">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html" class="style-fixed">Home</a></li>
+                <li><a href="typing.html">Typing Test</a></li>
+                <li><a href="another_game.html">Try another Game</a></li>
+                <li id="user-greeting" style="display: none; margin-right: 10px;"></li>
+                <li><a href="register.html" class="style-login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <div class="stats-container">
+            <h1><i class="fas fa-chart-bar"></i> Game Statistics</h1>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h2>Your Performance</h2>
+                    <div class="stat-value" id="total-games">0</div>
+                    <div class="stat-label">Total Games Played</div>
+                </div>
+                
+                <div class="stat-card">
+                    <h2>High Score</h2>
+                    <div class="stat-value" id="high-score">0</div>
+                    <div class="stat-label">Your Best Performance</div>
+                </div>
+                
+                <div class="stat-card">
+                    <h2>Average Score</h2>
+                    <div class="stat-value" id="average-score">0</div>
+                    <div class="stat-label">Your Average</div>
+                </div>
+                
+                <div class="stat-card">
+                    <h2>Last Score</h2>
+                    <div class="stat-value" id="last-score">0</div>
+                    <div class="stat-label">Most Recent Game</div>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <h2>Score History</h2>
+                <canvas id="scoreChart"></canvas>
+            </div>
+            
+            <div class="actions">
+                <button id="resetStats" class="action-btn">
+                    <i class="fas fa-trash-alt"></i> Reset Statistics
+                </button>
+                <button id="backToGame" class="action-btn">
+                    <i class="fas fa-gamepad"></i> Back to Game
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/stats.js"></script>
+</body>
+
+</html>

@@ -62,7 +62,7 @@ nav {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 4.5rem;
+    gap: 2rem;
 }
 
 nav a {
@@ -112,6 +112,35 @@ nav a.style-login:hover {
 
 nav a.style-login::after {
     width: 0%;
+}
+
+.username-display {
+    color: var(--terty-color);
+    background-color: var(--primary-color);
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    border-radius: 10px;
+    padding: 3px 15px;
+}
+
+.username-display.visible {
+    display: inline-block;
+}
+
+.style-logout {
+    color: var(--terty-color);
+    background-color: var(--primary-color);
+    border-radius: 20px;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-weight: bolder;
+    margin-left: 0;
+}
+
+.style-logout:hover {
+    box-shadow: 0 0 7px 7px white;
 }
 
 .welcome-section {

@@ -1,6 +1,7 @@
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 const loginLink = document.querySelector('.style-login');
+const usernameDisplay = document.getElementById('username-display');
 
 const text = "Improve your typing while having fun";
 const typingText = document.getElementById("typing-text");
@@ -10,18 +11,27 @@ let index = 0;
 
 function updateUserUI() {
     const welcomeEl = document.getElementById('welcomeMessage');
+    const usernameDisplay = document.getElementById('username-display');
+    const authButton = document.getElementById('auth-button');
     const username = localStorage.getItem('loggedInUser');
 
     if (username) {
         welcomeEl.textContent = `Welcome, ${username}!`;
-        loginLink.textContent = "Logout";  
-        loginLink.href = "#";  
-        loginLink.addEventListener('click', handleLogout); 
+        usernameDisplay.textContent = `Hello, ${username}`;
+        usernameDisplay.classList.add('visible');
+        authButton.textContent = "Logout";  
+        authButton.classList.add('style-logout');
+        authButton.classList.remove('style-login');
+        authButton.href = "#";  
+        authButton.addEventListener('click', handleLogout); 
     } else {
         welcomeEl.textContent = "Welcome, guest!";
-        loginLink.textContent = "Login";
-        loginLink.href = "register.html";
-        loginLink.removeEventListener('click', handleLogout); 
+        usernameDisplay.classList.remove('visible');
+        authButton.textContent = "Login";
+        authButton.classList.add('style-login');
+        authButton.classList.remove('style-logout');
+        authButton.href = "register.html";
+        authButton.removeEventListener('click', handleLogout); 
     }
 }
 

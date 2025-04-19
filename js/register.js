@@ -2,10 +2,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const signInButton = document.querySelector('input[type="submit"]');
     const usernameInput = document.getElementById('username');
     const emailInput = document.querySelector('.mail input');
-    const passwordInput = document.querySelector('.password input');
+    const passwordInput = document.getElementById('password');
+    const togglePassword = document.getElementById('togglePassword');
     const messageBox = document.createElement('div');
-    
-    
+
+    togglePassword.addEventListener('click', function () {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+
+        this.classList.toggle('fa-eye-slash');
+        this.classList.toggle('fa-eye');
+    });
+
     messageBox.style.display = 'none';
     messageBox.style.marginTop = '15px';
     messageBox.style.fontSize = '14px';
@@ -56,11 +64,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
-    
-    hamburger.addEventListener('click', function() {
+
+    hamburger.addEventListener('click', function () {
         this.classList.toggle('active');
         navLinks.classList.toggle('active');
     });

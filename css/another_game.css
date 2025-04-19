@@ -160,9 +160,9 @@ nav a.style-login::after {
 #difficulty {
   padding: 0.5rem;
   border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.1);
   color: var(--primary-color);
   border: 1px solid var(--red);
+  background-color: var(--background);
 }
 
 .game-area {
@@ -293,11 +293,14 @@ nav a.style-login::after {
 }
 
 #user-greeting {
-  color: var(--primary-color);
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  margin-right: 10px;
+  color: var(--terty-color);
+    background-color: var(--primary-color);
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    border-radius: 10px;
+    padding: 3px 15px;
 }
 
 .style-logout {
@@ -307,7 +310,7 @@ nav a.style-login::after {
   padding: 10px 15px;
   text-decoration: none;
   font-weight: bolder;
-  margin-left: 20px;
+  margin-left: 0;
 }
 
 .style-logout:hover {

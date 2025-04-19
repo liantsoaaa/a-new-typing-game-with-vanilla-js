@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../asset/images/vanilla_typing_logo.png" />
+    <link rel="stylesheet" href="../css/stats_typing.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/stats_typing.js" defer></script>
+    <title>Typing Stats</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="../asset/images/vanilla_typing_logo.png" alt="vanilla_typing_logo" class="logo-img">
+            <div class="logo">Vanilla Typing Game</div>
+        </div>
+        <nav>
+            <button class="hamburger" aria-label="Menu">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html" class="style-fixed">Home</a></li>
+                <li><a href="typing.html">Typing Test</a></li>
+                <li><a href="another_game.html">Try another Game</a></li>
+                <li id="user-greeting"></li>
+                <li><a href="register.html" class="style-login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="stats-container">
+        <h1>Your Typing Statistics</h1>
+
+        <div class="stats-summary">
+            <div class="stat-card">
+                <h2>Last Session</h2>
+                <div class="stat-value" id="last-wpm">0</div>
+                <div class="stat-label">WPM</div>
+            </div>
+            <div class="stat-card">
+                <h2>Last Accuracy</h2>
+                <div class="stat-value" id="last-accuracy">0%</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+            <div class="stat-card">
+                <h2>Best WPM</h2>
+                <div class="stat-value" id="best-wpm">0</div>
+                <div class="stat-label">Personal Best</div>
+            </div>
+        </div>
+
+        <div class="detailed-stats">
+            <div class="chart-container">
+                <div class="chart-card">
+                    <h2>Performance History</h2>
+                    <div class="chart-wrapper">
+                        <canvas id="stats-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-section">
+                <h2>Detailed Metrics</h2>
+                <div class="metrics-grid">
+                    <div class="metric">
+                        <span class="metric-label">Total Tests Completed:</span>
+                        <span class="metric-value" id="total-tests">0</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Average WPM:</span>
+                        <span class="metric-value" id="average-wpm">0</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Average Accuracy:</span>
+                        <span class="metric-value" id="average-accuracy">0%</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Total Characters Typed:</span>
+                        <span class="metric-value" id="total-characters">0</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Correct Characters:</span>
+                        <span class="metric-value" id="correct-characters">0</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Incorrect Characters:</span>
+                        <span class="metric-value" id="incorrect-characters">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button id="new-test-btn" class="action-btn">Start New Test</button>
+            <button id="clear-stats-btn" class="action-btn secondary">Clear History</button>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -26,7 +26,7 @@
         <li><a href="index.html" class="style-fixed">Home</a></li>
         <li><a href="typing.html">Typing Test</a></li>
         <li><a href="another_game.html">Try another Game</a></li>
-        <li id="user-greeting" style="display: none; margin-right: 10px;"></li>
+        <li id="user-greeting"></li>
         <li><a href="register.html" class="style-login">Login</a></li>
       </ul>
     </nav>
@@ -80,6 +80,10 @@
 
   <div id="restart-overlay" class="hidden-message">
     <p>Great job! Ready to try again?</p>
+    <div class="overlay-buttons">
+      <button id="view-stats-btn" class="action-btn">View Statistics</button>
+      <button id="try-again-btn" class="action-btn secondary">Try Again</button>
+    </div>
   </div>
 </body>
 
