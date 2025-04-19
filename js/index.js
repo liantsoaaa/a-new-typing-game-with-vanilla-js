@@ -14,14 +14,14 @@ function updateUserUI() {
 
     if (username) {
         welcomeEl.textContent = `Welcome, ${username}!`;
-        loginLink.textContent = "Logout";
-        loginLink.href = "#";
-        loginLink.addEventListener('click', handleLogout);
+        loginLink.textContent = "Logout";  
+        loginLink.href = "#";  
+        loginLink.addEventListener('click', handleLogout); 
     } else {
         welcomeEl.textContent = "Welcome, guest!";
         loginLink.textContent = "Login";
         loginLink.href = "register.html";
-        loginLink.removeEventListener('click', handleLogout);
+        loginLink.removeEventListener('click', handleLogout); 
     }
 }
 

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../asset/images/vanilla_typing_logo.png" />
+  <link rel="stylesheet" href="../css/typing.css">
+  <script src="../js/typing.js" defer></script>
+  <title>Typing test</title>
+</head>
+
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="../asset/images/vanilla_typing_logo.png" alt="vanilla_typing_logo" class="logo-img">
+      <div class="logo">Vanilla Typing Game</div>
+    </div>
+    <nav>
+      <button class="hamburger" aria-label="Menu">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="style-fixed">Home</a></li>
+        <li><a href="typing.html">Typing Test</a></li>
+        <li><a href="another_game.html">Try another Game</a></li>
+        <li>
+            <span id="username-display" class="username-display"></span>
+            <a href="register.html" class="style-login" id="auth-button">Login</a>
+        </li>
+    </ul>
+    </nav>
+  </header>
+
+  <div class="settings">
+    <div class="difficulty">
+      <label for="difficulty-select">Difficulty:</label>
+      <select id="difficulty-select">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+    </div>
+
+    <div class="duration">
+      <label for="duration-select">Duration:</label>
+      <select id="duration-select">
+        <option value="15">15sec</option>
+        <option value="30">30sec</option>
+        <option value="60" selected>1min</option>
+        <option value="120">2min</option>
+      </select>
+    </div>
+
+    <button id="restart-btn">Restart Test</button>
+  </div>
+
+  <div class="stats">
+    <div class="stat-box">
+      <h3>WPM</h3>
+      <p id="wpm">0</p>
+    </div>
+    <div class="stat-box">
+      <h3>Accuracy</h3>
+      <p id="accuracy">0%</p>
+    </div>
+    <div class="stat-box">
+      <h3>Time</h3>
+      <p id="timer">60s</p>
+    </div>
+  </div>
+
+  <div class="game-container">
+    <div id="word-display" class="words"></div>
+  </div>
+
+  <div class="input-container">
+    <input type="text" id="word-input" placeholder="Start typing here..." autocomplete="off" autofocus />
+  </div>
+
+  <div id="restart-overlay" class="hidden-message">
+    <p>Great job! Ready to try again?</p>
+  </div>
+</body>
+
+</html>
