@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../asset/images/vanilla_typing_logo.png" />
+  <title>Vanilla Typing Game</title>
+  <link rel="stylesheet" href="../css/another_game.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+        <img src="../asset/images/vanilla_typing_logo.png" alt="vanilla_typing_logo" class="logo-img">
+        <div class="logo">Vanilla Typing Game</div>
+    </div>
+    <nav>
+        <button class="hamburger" aria-label="Menu">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="../index.html" class="style-fixed">Home</a></li>
+            <li><a href="typing.html">Typing Test</a></li>
+            <li><a href="another_game.html">Try another Game</a></li>
+            <li><a href="register.html" class="style-login">Login</a></li>
+        </ul>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <!-- Game Area -->
+    <div class="game-container">
+      <div class="game-header">
+        <div class="score-lives">
+          <div id="score">Score: 0</div>
+          <div id="lives">❤️❤️❤️❤️❤️</div>
+        </div>
+        <div class="difficulty-selector">
+          <label for="difficulty">Difficulty:</label>
+          <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+      </div>
+      
+      <div id="gameArea" class="game-area"></div>
+      
+      <div class="input-container">
+        <input type="text" id="wordInput" class="word-input" placeholder="Type the words that fall..." autocomplete="off">
+      </div>
+      
+      <!-- Control Buttons -->
+      <div class="controls">
+        <button id="startBtn" class="control-btn">
+          <i class="fas fa-play"></i> Start
+        </button>
+        <button id="pauseBtn" class="control-btn">
+          <i class="fas fa-pause"></i> Pause
+        </button>
+      </div>
+    </div>
+
+    <!-- End Screen -->
+    <div id="endScreen" class="end-screen">
+      <div class="end-message">
+        <h2 id="gameResult">Game Over</h2>
+        <p>Score Final: <span id="finalScore">0</span></p>
+        <div class="end-buttons">
+          <button id="restartBtn" class="end-btn">
+            <i class="fas fa-redo"></i> Restart
+          </button>
+          <button id="seeStatsBtn" class="end-btn">
+            <i class="fas fa-chart-bar"></i> Statistics
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/another_game.js"></script>
+</body>
+</html>
