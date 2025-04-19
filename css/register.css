@@ -281,7 +281,6 @@ nav a.style-login::after {
     box-shadow: 0 0 10px var(--animation-color-2), 0 0 60px var(--animation-color-2);
 }
 
-/* Password Wrapper with Eye Icon */
 .password-wrapper {
     position: relative;
 }
@@ -295,7 +294,6 @@ nav a.style-login::after {
     color: #666;
 }
 
-/* Password Validation Message */
 #password-message {
     margin-top: 8px;
     font-size: 13px;
@@ -303,7 +301,6 @@ nav a.style-login::after {
     color: red;
 }
 
-/* Spinner */
 .loader {
     border: 3px solid #f3f3f3;
     border-top: 3px solid #4CAF50;
@@ -325,7 +322,44 @@ nav a.style-login::after {
     }
 }
 
-/* Hamburger Menu Styles */
+.username-display {
+    color: var(--primary-color);
+    margin-right: 10px;
+    font-weight: bold;
+    display: none;
+}
+
+.username-display.visible {
+    display: inline;
+}
+
+.style-logout {
+    color: var(--terty-color)!important;
+    background-color: var(--primary-color) !important;
+    border-radius: 20px;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-weight: bolder;
+    margin-left: 20px;
+}
+
+.style-logout:hover {
+    box-shadow: 0 0 7px 7px var(--animation-color) !important;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #666;
+}
+
+.toggle-password:hover {
+    color: var(--primary-color);
+}
+
 .hamburger {
     display: none;
     cursor: pointer;
@@ -384,7 +418,6 @@ nav a.style-login::after {
     transform: translateY(-8px) rotate(-45deg);
 }
 
-/* Responsive Styles */
 @media (max-width: 992px) {
     .nav-links {
         gap: 1.5rem;
@@ -496,5 +529,4 @@ nav a.style-login::after {
         align-items: center;
         gap: 10px;
     }
->>>>>>> liantsoa
 }

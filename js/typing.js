@@ -213,7 +213,6 @@ function handleWordCompletion() {
     if (currentWordIndex >= wordElements.length) {
         endGame();
     } else {
-        // Mettre en surbrillance le premier caractère du mot suivant
         const nextWordElement = wordElements[currentWordIndex];
         const nextCharElements = nextWordElement.querySelectorAll(".char");
         if (nextCharElements.length > 0) {
@@ -299,7 +298,6 @@ function updateAuthUI() {
 
 function handleAuthClick(e) {
     if (isLoggedIn) {
-        // Déconnexion
         e.preventDefault();
         localStorage.removeItem('currentUser');
         isLoggedIn = false;
