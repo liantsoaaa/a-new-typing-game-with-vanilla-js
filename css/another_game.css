@@ -292,7 +292,28 @@ nav a.style-login::after {
   color: var(--red);
 }
 
-/* Hamburger Menu Styles */
+#user-greeting {
+  color: var(--primary-color);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.style-logout {
+  color: var(--terty-color);
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-weight: bolder;
+  margin-left: 20px;
+}
+
+.style-logout:hover {
+  box-shadow: 0 0 7px 7px white;
+}
+
 .hamburger {
   display: none;
   cursor: pointer;

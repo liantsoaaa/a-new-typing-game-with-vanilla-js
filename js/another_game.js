@@ -207,5 +207,55 @@ seeStatsBtn.addEventListener("click", () => {
     window.location.href = "stats.html";
 });
 
-// Initialize game
 resetGame();
+
+function updateLoginDisplay() {
+    const userGreeting = document.getElementById('user-greeting');
+    const loginLink = document.querySelector('.style-login');
+    const loggedInUser = localStorage.getItem('loggedInUser');
+
+    if (loggedInUser) {
+        userGreeting.textContent = `Hello, ${loggedInUser}`;
+        userGreeting.style.display = 'block';
+        loginLink.textContent = 'Logout';
+        loginLink.classList.add('style-logout');
+        loginLink.classList.remove('style-login');
+        loginLink.href = '#';
+    } else {
+        userGreeting.style.display = 'none';
+        loginLink.textContent = 'Login';
+        loginLink.classList.add('style-login');
+        loginLink.classList.remove('style-logout');
+        loginLink.href = 'register.html';
+    }
+}
+
+function handleLogout(e) {
+    e.preventDefault();
+    localStorage.removeItem('loggedInUser');
+    updateLoginDisplay();
+    window.location.href = '../index.html';
+}
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        
+        if (link.classList.contains('style-logout')) {
+            handleLogout(e);
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    updateLoginDisplay();
+    
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+});

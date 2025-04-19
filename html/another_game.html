@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,24 +9,26 @@
   <link rel="stylesheet" href="../css/another_game.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
   <header>
     <div class="logo-container">
-        <img src="../asset/images/vanilla_typing_logo.png" alt="vanilla_typing_logo" class="logo-img">
-        <div class="logo">Vanilla Typing Game</div>
+      <img src="../asset/images/vanilla_typing_logo.png" alt="vanilla_typing_logo" class="logo-img">
+      <div class="logo">Vanilla Typing Game</div>
     </div>
     <nav>
-        <button class="hamburger" aria-label="Menu">
-            <span class="hamburger-box">
-                <span class="hamburger-inner"></span>
-            </span>
-        </button>
-        <ul class="nav-links">
-            <li><a href="../index.html" class="style-fixed">Home</a></li>
-            <li><a href="typing.html">Typing Test</a></li>
-            <li><a href="another_game.html">Try another Game</a></li>
-            <li><a href="register.html" class="style-login">Login</a></li>
-        </ul>
+      <button class="hamburger" aria-label="Menu">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../index.html" class="style-fixed">Home</a></li>
+        <li><a href="typing.html">Typing Test</a></li>
+        <li><a href="another_game.html">Try another Game</a></li>
+        <li id="user-greeting" style="display: none; margin-right: 10px;"></li>
+        <li><a href="register.html" class="style-login">Login</a></li>
+      </ul>
     </nav>
   </header>
 
@@ -46,13 +49,14 @@
           </select>
         </div>
       </div>
-      
+
       <div id="gameArea" class="game-area"></div>
-      
+
       <div class="input-container">
-        <input type="text" id="wordInput" class="word-input" placeholder="Type the words that fall..." autocomplete="off">
+        <input type="text" id="wordInput" class="word-input" placeholder="Type the words that fall..."
+          autocomplete="off">
       </div>
-      
+
       <!-- Control Buttons -->
       <div class="controls">
         <button id="startBtn" class="control-btn">
@@ -83,4 +87,5 @@
 
   <script src="../js/another_game.js"></script>
 </body>
+
 </html>
