@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../asset/images/vanilla_typing_logo.png" />
+    <title>Sign-in</title>
+    <link rel="stylesheet" href="../css/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css"
+        integrity="sha512-pVCM5+SN2+qwj36KonHToF2p1oIvoU3bsqxphdOIWMYmgr4ZqD3t5DjKvvetKhXGc/ZG5REYTT6ltKfExEei/Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="../asset/images/vanilla_typing_logo.png" alt="vanilla_typing_logo" class="logo-img">
+            <div class="logo">Vanilla Typing Game</div>
+        </div>
+        <nav>
+            <button class="hamburger" aria-label="Menu">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html" class="style-fixed">Home</a></li>
+                <li><a href="typing.html">Typing Test</a></li>
+                <li><a href="#">Try another Game</a></li>
+                <li><a href="register.html" class="style-login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <div class="box">
+            <div class="login">
+                <div class="loginbx">
+                    <h2>
+                        sign in
+                        <i class="fa-solid fa-heart" id="heart"></i>
+                    </h2>
+                    <div class="forms">
+                        <div class="username">
+                            <h3> Username</h3>
+                            <input type="text" id="username" placeholder="enter your username" required>
+                        </div>
+                        <div class="mail">
+                            <h3> Email</h3>
+                            <input type="email" placeholder="enter your mail here" required>
+                        </div>
+                        <div class="password">
+                            <h3>Password</h3>
+                            <div class="password-wrapper">
+                                <input type="password" id="password" placeholder="Password" required>
+                                <i class="fa-solid fa-eye-slash toggle-password" id="togglePassword"></i>
+                            </div>
+                            <div id="password-message"></div>
+                        </div>                        
+                        <input type="submit" value="Sign in">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="../js/register.js"></script>
+</body>
+
+</html>
